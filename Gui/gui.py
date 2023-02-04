@@ -1,3 +1,5 @@
+"""Learning Page: https://python-course.eu/tkinter/entry-widgets-in-tkinter.php"""
+
 import tkinter as tk
 import time
 
@@ -30,4 +32,3 @@ tk.Button(gui, text='Show', command=processData).grid(row=30,
 
 
 gui.mainloop()
-"""https://python-course.eu/tkinter/entry-widgets-in-tkinter.php"""
