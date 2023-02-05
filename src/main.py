@@ -51,7 +51,9 @@ def diagnose(record):
     indices = np.argsort(featureImp)[::-1]
     attributes = columns
     print(classification1.predict(xTest))
-    return classification1.predict(pd.DataFrame([record], columns =xTest.columns))[0]
+    index = classification1.predict(pd.DataFrame([record], columns =xTest.columns))[0]
+    injury = "Sciatica"
+    return injury
 #print(reading)
 #print(xTest)
 #print(model1.predict(xTest))
