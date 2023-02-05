@@ -7,6 +7,7 @@ col = model.columns
 values = model.values.tolist() 
 
 newValues = []
+print(col)
 for i in range(5000):
     #print(randint(0, len(values)))
     #print(values[randint(0, len(values) - 1)])

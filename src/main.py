@@ -12,8 +12,8 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 
 # training and testing the data read from the csv files
-train = pd.read_csv('../data/test1.csv') 
-test = pd.read_csv('../data/test1.csv') # TODO update with test file when it's done
+train = pd.read_csv('./data/test1.csv') 
+test = pd.read_csv('./data/test1.csv') # TODO update with test file when it's done
 #reading = pd.read_csv('../data/test.csv')
 columns = train.columns
 columns = columns[:-1]
@@ -49,7 +49,8 @@ featureImp = classification1.feature_importances_
 indices = np.argsort(featureImp)[::-1]
 attributes = columns
 
-
+def diagnose(record):
+    return classification1.predict(record)
 #print(reading)
 #print(xTest)
 #print(model1.predict(xTest))
