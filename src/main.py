@@ -24,6 +24,7 @@ y = train['injury']
 label_encoder = preprocess.LabelEncoder()
 label_encoder.fit(y)
 y = label_encoder.transform(y)
+print("y is ", y)
 
 # splitting 33 percent of the data for testing and the rest is used for training
 xTrain, xTest, yTrain, yTest = tts(x, y, test_size = 0.33)
@@ -49,7 +50,26 @@ featureImp = classification1.feature_importances_
 indices = np.argsort(featureImp)[::-1]
 attributes = columns
 
+symptomsDict = {}
 
+for i, s in enumerate(x):
+       symptomsDict[s] = i
+       
+def prediction(explainedSymptom):
+    df = pd.read_csv('../data/test1.csv')
+    x = df.iloc[:, :-1]
+    y = df['injury']
+    x_train, x_test, y_train, y_test = tts(x, y, test_size=0.3, random_state=20)
+    tree_clf = DecisionTreeClassifier()
+    tree_clf.fit(x_train, y_train)
+
+    symptomsDict = {s: i for index, symptom in enumerate(x)}
+    
+    input_vector = np.zeros(len(symptomsDict))
+    for item in explainedSymptom:
+      input_vector[[symptomsDict[item]]] = 1
+
+    return tree_clf.predict([input_vector])
 #print(reading)
 #print(xTest)
 #print(model1.predict(xTest))
