@@ -5,17 +5,18 @@ from sklearn.tree import DecisionTreeClassifier,_tree
 from sklearn import preprocessing as preprocess
 # used to split the dataset into training and testing arrays
 from sklearn.model_selection import train_test_split as tts
+from sklearn.model_selection import cross_val_score as cvs
 from sklearn.svm import SVC
 
 
 
 # training and testing the data read from the csv files
-train = pd.read_csv('../data/main.csv') 
-test = pd.read_csv('../data/main.csv') # TODO update with test file when it's done
+train = pd.read_csv('../data/Training.csv') 
+test = pd.read_csv('../data/Training.csv') # TODO update with test file when it's done
 columns = train.columns
 columns = columns[:-1]
 x = train[columns]
-y = train['label']
+y = train['prognosis']
 
 # transforming non-numerical labels to numerical labels
 label_encoder = preprocess.LabelEncoder()
@@ -25,12 +26,13 @@ y = label_encoder.transform(y)
 # splitting 33 percent of the data for testing and the rest is used for training
 xTrain, xTest, yTrain, yTest = tts(x, y, test_size = 0.33)
 testingX = test[columns]
-testingY = test['label']
+testingY = test['prognosis']
 # transform into numerical labels
 testingY = label_encoder.transform(testingY)
 
 
-model1 =SVC()
+
+model1 = SVC()
 model1.fit(xTrain,yTrain)
 print("svm model: ")
 print(model1.score(xTest,yTest))
