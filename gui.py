@@ -3,14 +3,12 @@ import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
 from ttkbootstrap.scrolled import ScrolledText
 import pandas as pd
-#from src.main import diagnose
-def diagnose(something):
-    print(symptoms)
-    print(record)
-    return 10
+from src.main import diagnose
 import time
 
 def processData(event=None):
+    if finished:
+        return
     beforeStart.after(0, beforeStart.destroy())
     userInput = e1.get()
     chat.insert(END, '(You):\n', '(You)')
@@ -21,19 +19,23 @@ def processData(event=None):
     e1.delete(0, END)
 
 def AISolution():
-    result = diagnose(pd.DataFrame([record], columns =symptoms))
+    global finished
+    finished = True
+    result = diagnose(record)
     chat.insert(END, 'Doc:\n', 'Doc')
-    chat.insert(END, "Ok I think I know what your case is " + str(result), 'Docword')
+    chat.insert(END, "Ok. It seems you got " + str(result), 'Docword')
     chat.insert(END, '\n')
     chat.see(tk.END)
     return 
     
 def checkingSymptoms():
+    if finished:
+        return
     global loc
     for i in range(len(record)):
         if record[i] == -1:
             chat.insert(END, 'Doc:\n', 'Doc')
-            chat.insert(END, "Great, did you feel " + symptoms[i] + " recentally?", 'Docword')
+            chat.insert(END, "Got it, did you feel " + symptoms[i] + " recentally?", 'Docword')
             chat.insert(END, '\n')
             chat.see(tk.END)
             YesButton = ttk.Button(gui, text="Yes I have that feeling", bootstyle=SUCCESS, command=makeTrue)
@@ -47,6 +49,8 @@ def checkingSymptoms():
 
             
 def makeTrue():
+    if finished:
+        return
     chat.insert(END, '(You):\n', '(You)')
     chat.insert(END, "Yes I have that feeling", 'yourword')
     chat.insert(END, '\n')
@@ -54,7 +58,8 @@ def makeTrue():
     record[loc] = 1
     checkingSymptoms()
 def makeFalse():
-    cur = 0
+    if finished:
+        return
     chat.insert(END, '(You):\n', '(You)')
     chat.insert(END, "No, I don't have that feeling", 'yourword')
     chat.insert(END, '\n')
@@ -63,10 +68,11 @@ def makeFalse():
     checkingSymptoms()
     
 
-symptoms = ['arm pain', 'back pain', 'leg pain', 'ankle pain', 'inner thigh pain', 'back thigh pain', 'shoulder pain', 'tendon pain', 'swelling','headache', 'weakness', 'stiffness', 'difficulty moving/straightening ','nausea', 'bruising ', 'tenderness', 'numbness','difficulty putting weight on', 'dizziness or blurry vision', 'spasms','elbow pain', 'difficulty balancing ', 'light and sound irritation',' Trouble controlling bowels or bladder']
+symptoms = ['arm pain', 'back pain', 'leg pain', 'ankle pain', 'inner thigh pain', 'back thigh pain', 'shoulder pain', 'tendon pain', 'swelling','headache', 'weakness', 'stiffness', 'difficulty moving/straightening ','nausea', 'bruising ', 'tenderness', 'numbness','difficulty putting weight on', 'dizziness or blurry vision', 'spasms','elbow pain', 'difficulty balancing ', 'light and sound irritation',' Trouble controlling bowels or bladder', 'injury']
 record = []
 cur = 0
 loc = 0
+finished = False
 for _ in symptoms:
     record.append(-1)
 print(symptoms)
