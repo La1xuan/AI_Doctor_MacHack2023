@@ -13,7 +13,7 @@ for i in range(5000):
     #print(values[randint(0, len(values) - 1)])
     temp = copy.deepcopy(values[randint(0, len(values) - 1)])
     for i in range(len(temp) - 1):
-        if randint(1, 10) > 9:
+        if randint(1, 10) > 10:
             if temp[i] == 0:
                 temp[i] = 1
             else:

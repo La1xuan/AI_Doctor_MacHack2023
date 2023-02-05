@@ -13,18 +13,18 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 symptoms = ['arm pain', 'back pain', 'leg pain', 'ankle pain', 'inner thigh pain', 'back thigh pain', 'shoulder pain', 'tendon pain', 'swelling','headache', 'weakness', 'stiffness', 'difficulty moving/straightening ','nausea', 'bruising ', 'tenderness', 'numbness','difficulty putting weight on', 'dizziness or blurry vision', 'spasms','elbow pain', 'difficulty balancing ', 'light and sound irritation',' Trouble controlling bowels or bladder']
 
-treatment = {"sprained ankle": """sprained ankle\n Suggested Treatment:\n Rest, Ice, Compression, and Elevation (or) ankle support brace"""
-            , "Knee injury (ACL tear, MCL tear)": """Knee injury (ACL tear, MCL tear)\n Suggested Treatment:\n ACL or MCL reconstruction (or) rehabilitation with orthopedic therapy"""
+treatment = {"sprained ankle": """sprained ankle\n Suggested Treatment: Rest, Ice, Compression, and Elevation (or) ankle support brace"""
+            , "Knee injury (ACL tear, MCL tear)": """Knee injury (ACL tear, MCL tear)\n Suggested Treatment: ACL or MCL reconstruction (or) rehabilitation with orthopedic therapy"""
             , "shin splints": """shin splints\n Suggested Treatment:\n Nonsteroidal anti-inflammatory medicines"""
-            , "tennis elbow (lateral epicondylitis)": """tennis elbow (lateral epicondylitis)\n Suggested Treatment:\n Counterforce brace. Steroid injections"""
-            , "groin pull (groin strain)": """groin pull (groin strain)\n Suggested Treatment:\n Ice pack"""
-            , "hamstring strain": """hamstring strain\n Suggested Treatment:\n Physical therapy"""
-            , "shoulder impingement": """shoulder impingement\n Suggested Treatment:\n Shoulder exercises"""
-            , "low back pain": """low back pain\n Suggested Treatment:\n Acupuncture"""
-            , "herniated disc in the neck": """herniated disc in the neck\n Suggested Treatment:\n Anterior cervical discectomy & fusion (ACDF)"""
-            , "tendonitis": """tendonitis\n Suggested Treatment:\n rest, physical therapy and medicine"""
-            , "concussion ": """concussion\n Suggested Treatment:\n Physical and mental rest"""
-            , "Sciatica": """Sciatica\n Suggested Treatment:\n Anti-inflammatories. Corticosteroids. Antidepressants. Anti-seizure medications. Opioids"""
+            , "tennis elbow (lateral epicondylitis)": """tennis elbow (lateral epicondylitis)\n Suggested Treatment: Counterforce brace. Steroid injections"""
+            , "groin pull (groin strain)": """groin pull (groin strain)\n Suggested Treatment: Ice pack"""
+            , "hamstring strain": """hamstring strain\n Suggested Treatment: Physical therapy"""
+            , "shoulder impingement": """shoulder impingement\n Suggested Treatment: Shoulder exercises"""
+            , "low back pain": """low back pain\n Suggested Treatment: Acupuncture"""
+            , "herniated disc in the neck": """herniated disc in the neck\n Suggested Treatment: Anterior cervical discectomy & fusion (ACDF)"""
+            , "tendonitis": """tendonitis\n Suggested Treatment: rest, physical therapy and medicine"""
+            , "concussion ": """concussion\n Suggested Treatment: Physical and mental rest"""
+            , "Sciatica": """Sciatica\n Suggested Treatment: Anti-inflammatories. Corticosteroids. Antidepressants. Anti-seizure medications. Opioids"""
             }
 def diagnose(record):
     # training and testing the data read from the csv files

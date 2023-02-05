@@ -35,7 +35,7 @@ def checkingSymptoms():
     for i in range(len(record)):
         if record[i] == -1:
             chat.insert(END, 'Doc:\n', 'Doc')
-            chat.insert(END, "Got it, did you feel " + symptoms[i] + " recentally?", 'Docword')
+            chat.insert(END, "Got it, did you feel " + symptoms[i] + " recently?", 'Docword')
             chat.insert(END, '\n')
             chat.see(tk.END)
             YesButton = ttk.Button(gui, text="Yes I have that feeling", bootstyle=SUCCESS, command=makeTrue)
