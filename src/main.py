@@ -22,10 +22,10 @@ def diagnose(record):
     x = train[columns]
     y = train['injury']
 
-    # transforming non-numerical labels to numerical labels
-    label_encoder = preprocess.LabelEncoder()
-    label_encoder.fit(y)
-    y = label_encoder.transform(y)
+# transforming non-numerical labels to numerical labels
+label_encoder = preprocess.LabelEncoder()
+label_encoder.fit(y)
+y = label_encoder.transform(y)
 
     # splitting 33 percent of the data for testing and the rest is used for training
     xTrain, xTest, yTrain, yTest = tts(x, y, test_size = 0.33)
@@ -47,13 +47,11 @@ def diagnose(record):
     print("svm model: ")
     print(model1.score(xTest,yTest))
 
-    featureImp = classification1.feature_importances_
-    indices = np.argsort(featureImp)[::-1]
-    attributes = columns
-    print(classification1.predict(xTest))
-    index = classification1.predict(pd.DataFrame([record], columns =xTest.columns))[0]
-    injury = "Sciatica"
-    return injury
+featureImp = classification1.feature_importances_
+indices = np.argsort(featureImp)[::-1]
+attributes = columns
+
+
 #print(reading)
 #print(xTest)
 #print(model1.predict(xTest))
