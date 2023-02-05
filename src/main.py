@@ -4,7 +4,7 @@ from sklearn.tree import DecisionTreeClassifier,_tree
 # this package is used to change raw feature vectors into a representation that is more suitable for some uses.
 from sklearn import preprocessing as preprocess
 # used to split the dataset into training and testing arrays
-from sklearn import train_test_split as tts
+from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import cross_val_score as cvs
 
 
