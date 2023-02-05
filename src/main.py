@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 # training and testing the data read from the csv files
 train = pd.read_csv('../data/test1.csv') 
 test = pd.read_csv('../data/test1.csv') # TODO update with test file when it's done
-reading = pd.read_csv('../data/test.csv')
+#reading = pd.read_csv('../data/test.csv')
 columns = train.columns
 columns = columns[:-1]
 x = train[columns]
@@ -36,8 +36,9 @@ testingY = label_encoder.transform(testingY)
 classification  = DecisionTreeClassifier()
 classification1 = classification.fit(xTrain,yTrain)
 scores = cvs(classification1, xTest, yTest, cv=3)
+print(classification1.predict(xTest))
 
-#print ("Mean", scores.mean())
+print ("Mean", scores.mean())
 
 model1 = SVC()
 model1.fit(xTrain,yTrain)
