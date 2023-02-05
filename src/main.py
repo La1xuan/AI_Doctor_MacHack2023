@@ -7,7 +7,8 @@ from sklearn import preprocessing as preprocess
 from sklearn.model_selection import train_test_split as tts
 from sklearn.model_selection import cross_val_score as cvs
 from sklearn.svm import SVC
-
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 
 
 # training and testing the data read from the csv files
@@ -32,18 +33,23 @@ testingY = test['injury']
 testingY = label_encoder.transform(testingY)
 
 
+classification  = DecisionTreeClassifier()
+classification1 = classification.fit(xTrain,yTrain)
+scores = cvs(classification1, xTest, yTest, cv=3)
+
+print ("Mean", scores.mean())
 
 model1 = SVC()
 model1.fit(xTrain,yTrain)
 print("svm model: ")
 print(model1.score(xTest,yTest))
 
-"""
-1, 1, 0, 1, 1, 0, "covid"
+featureImp = classification1.feature_importances_
+indices = np.argsort(featureImp)[::-1]
+attributes = columns
 
-1, 1, 0, 1, 1, 0,
-"""
+
 #print(reading)
-#print(xTest)
-#print(model1.predict(reading))
-#print(yTest)
+print(xTest)
+print(model1.predict(xTest))
+print(yTest)
