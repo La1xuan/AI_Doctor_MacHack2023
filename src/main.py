@@ -10,8 +10,8 @@ from sklearn.svm import SVC
 
 
 # training and testing the data read from the csv files
-train = pd.read_csv('../data/main.csv') 
-test = pd.read_csv('../data/main.csv') # TODO update with test file when it's done
+train = pd.read_csv('../data/data.csv') 
+test = pd.read_csv('../data/data.csv') # TODO update with test file when it's done
 columns = train.columns
 columns = columns[:-1]
 x = train[columns]
