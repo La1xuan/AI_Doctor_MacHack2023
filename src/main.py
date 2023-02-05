@@ -5,7 +5,8 @@ from sklearn.tree import DecisionTreeClassifier,_tree
 from sklearn import preprocessing as preprocess
 # used to split the dataset into training and testing arrays
 from sklearn.model_selection import train_test_split as tts
-from sklearn.model_selection import cross_val_score as cvs
+from sklearn.svm import SVC
+
 
 
 # training and testing the data read from the csv files
@@ -27,11 +28,6 @@ testingX = test[columns]
 testingY = test['label']
 # transform into numerical labels
 testingY = label_encoder.transform(testingY)
-
-classifier  = DecisionTreeClassifier()
-classifier1 = classifier.fit(xTrain,yTrain)
-value = cvs(classifier1, xTest, yTest, cv=3)
-print (value.mean())
 
 
 model1 =SVC()
