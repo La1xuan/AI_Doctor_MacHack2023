@@ -11,13 +11,13 @@ from sklearn.svm import SVC
 
 
 # training and testing the data read from the csv files
-train = pd.read_csv('../data/Training.csv') 
-test = pd.read_csv('../data/Training.csv') # TODO update with test file when it's done
+train = pd.read_csv('../data/data.csv') 
+test = pd.read_csv('../data/data.csv') # TODO update with test file when it's done
 reading = pd.read_csv('../data/test.csv')
 columns = train.columns
 columns = columns[:-1]
 x = train[columns]
-y = train['prognosis']
+y = train['injury']
 
 # transforming non-numerical labels to numerical labels
 label_encoder = preprocess.LabelEncoder()
@@ -27,7 +27,7 @@ y = label_encoder.transform(y)
 # splitting 33 percent of the data for testing and the rest is used for training
 xTrain, xTest, yTrain, yTest = tts(x, y, test_size = 0.33)
 testingX = test[columns]
-testingY = test['prognosis']
+testingY = test['injury']
 # transform into numerical labels
 testingY = label_encoder.transform(testingY)
 
@@ -43,7 +43,7 @@ print(model1.score(xTest,yTest))
 
 1, 1, 0, 1, 1, 0,
 """
-print(reading)
+#print(reading)
 #print(xTest)
-print(model1.predict(reading))
+#print(model1.predict(reading))
 #print(yTest)
