@@ -25,7 +25,7 @@ def AISolution():
     chat.insert(END, 'Doc:\n', 'Doc')
     chat.insert(END, "Ok I think I know what your case is " + str(result), 'Docword')
     chat.insert(END, '\n')
-    
+    chat.see(tk.END)
     return 
     
 def checkingSymptoms():
