@@ -23,7 +23,7 @@ def AISolution():
     finished = True
     result = diagnose(record)
     chat.insert(END, 'Doc:\n', 'Doc')
-    chat.insert(END, "Ok. It seems you got " + str(result), 'Docword')
+    chat.insert(END, "Ok. It seems you've got " + str(result), 'Docword')
     chat.insert(END, '\n')
     chat.see(tk.END)
     return 
