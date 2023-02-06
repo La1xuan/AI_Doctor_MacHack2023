@@ -1,7 +1,8 @@
 import tkinter as tk
+from tkinter import ttk 
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from ttkbootstrap.scrolled import ScrolledText
+from tkinter import scrolledtext
 import pandas as pd
 from src.main import diagnose
 import time
@@ -97,7 +98,7 @@ quitButton.place(x=25, y=450)
 sentButton = ttk.Button(gui, text="|>", bootstyle=(SUCCESS, OUTLINE), command=processData)
 sentButton.place(x=440, y=450)
 
-chat = ScrolledText(gui, padding=30, height=24, width=70, autohide=True)
+chat = scrolledtext.ScrolledText(gui, height=24, width=70)
 chat.place(x=0, y=0)
 chat.tag_config('(You)', foreground='blue')
 chat.tag_config('yourword', foreground='grey')

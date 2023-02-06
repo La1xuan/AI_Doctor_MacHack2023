@@ -1,5 +1,6 @@
 # 🫀HealAI (MacHacks 2023)
 
+[Demo Video](https://youtu.be/rau0moh-1j0) 
 The AI-powered tool that our team has created is designed to help patients better understand their physical injuries and take the necessary treatments to maintain their well-being. The tool works by allowing patients to input their symptoms into the system, which then uses advanced algorithms to analyze the information and provide recommendations for treatments based on those symptoms. This can help patients quickly and easily identify any potential injuries and take steps to address them, leading to better health outcomes and improved quality of life.
 
 
